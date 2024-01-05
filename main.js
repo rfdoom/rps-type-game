@@ -12,20 +12,33 @@ const options = {
 };
 
 
-rock.addEventListener('click', () => {
-  playerChoice = Object.keys(options)[0];
-  computerTurn();
-})
+// rock.addEventListener('click', () => {
+//   playerChoice = Object.keys(options)[0];
+//   computerTurn();
+// })
 
-paper.addEventListener('click', () => {
-  playerChoice = Object.keys(options)[1];
-  computerTurn();
-})
+// paper.addEventListener('click', () => {
+//   playerChoice = Object.keys(options)[1];
+//   computerTurn();
+// })
 
-scissors.addEventListener('click', () => {
-  playerChoice = Object.keys(options)[2];
+// scissors.addEventListener('click', () => {
+//   playerChoice = Object.keys(options)[2];
+//   computerTurn();
+// })
+
+const whichOne = (e) => {
+  // to get the keys from the objects dictionary into an array [rock, paper, scissors]
+  play = Object.keys(options);
+
+  // to find which key in the array matches the id of the target button
+  playerChoice = play.find((x) => x === e.target.id);
   computerTurn();
-})
+}
+
+rock.addEventListener('click', whichOne);
+paper.addEventListener('click', whichOne);
+scissors.addEventListener('click', whichOne);
 
 const getRandomInt = () => {
   return (Math.floor(Math.random() * 3));
