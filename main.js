@@ -6,26 +6,10 @@ const paper = document.getElementById('paper');
 const scissors = document.getElementById('scissors');
 
 const options = {
-  rock: {losesTo: 'paper', winsTo: 'scissors'},
-  paper: {losesTo: 'scissors', winsTo: 'rock'},
-  scissors: {losesTo: 'rock', winsTo: 'paper'}
+  rock: {losesTo: 'paper', winsTo: 'scissors', message: 'rock crushes scissors'},
+  paper: {losesTo: 'scissors', winsTo: 'rock', message: 'paper suffocates rock'},
+  scissors: {losesTo: 'rock', winsTo: 'paper', message: 'scissors shred paper'}
 };
-
-
-// rock.addEventListener('click', () => {
-//   playerChoice = Object.keys(options)[0];
-//   computerTurn();
-// })
-
-// paper.addEventListener('click', () => {
-//   playerChoice = Object.keys(options)[1];
-//   computerTurn();
-// })
-
-// scissors.addEventListener('click', () => {
-//   playerChoice = Object.keys(options)[2];
-//   computerTurn();
-// })
 
 const whichOne = (e) => {
   // to get the keys from the objects dictionary into an array [rock, paper, scissors]
@@ -45,11 +29,11 @@ const getRandomInt = () => {
 }
 
 const getWinner = (playerChoice, computerChoice) => {
-  console.log('player: ',  playerChoice);
-  console.log('computer', computerChoice);
-  return options[playerChoice].winsTo === computerChoice ? console.log('win')
-  : options[playerChoice] === options[computerChoice] ? console.log('draw')
-  : console.log('lose');
+  const result = 
+    options[playerChoice].winsTo === computerChoice ? `${options[playerChoice].message}. You win!`
+    : options[playerChoice] === options[computerChoice] ? 'This is a draw.'
+    : `${options[computerChoice].message}. You lose.`;
+  return document.getElementById('results').innerText = result;
 }
 
 const computerTurn = () => {
@@ -60,3 +44,4 @@ const computerTurn = () => {
   computerChoice = Object.keys(options)[getRandomInt()];
   getWinner(playerChoice, computerChoice);
 }
+
