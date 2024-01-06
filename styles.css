@@ -1,0 +1,49 @@
+.history-element {
+  display: flex;
+  justify-content: right;
+  align-content: center;
+  padding-right: 50px;
+}
+
+.history-elements {
+  padding-right: 50px;
+}
+
+ul {
+  list-style: none;
+}
+
+.score-card {
+  display: flex;
+}
+
+.scores {
+  padding-left: 20px;
+}
+
+#banner {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+}
+#scoreboard {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  background-color: red;
+}
+
+#player-score {
+  background-color: black;
+  height: 100%;
+}
